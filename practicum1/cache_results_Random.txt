@@ -1,0 +1,30 @@
+====================================
+Number of accesses: 1000
+Number of messages: 100
+Cache hit for Random replacement: 984
+Cache miss for Random replacement: 16
+Cache hit rate for Random replacement: 0.98
+====================================
+Number of accesses: 1000
+Number of messages: 100
+Cache hit for Random replacement: 983
+Cache miss for Random replacement: 17
+Cache hit rate for Random replacement: 0.98
+====================================
+Number of accesses: 1000
+Number of messages: 100
+Cache hit for Random replacement: 987
+Cache miss for Random replacement: 13
+Cache hit rate for Random replacement: 0.99
+====================================
+Number of accesses: 1000
+Number of messages: 100
+Cache hit for Random replacement: 983
+Cache miss for Random replacement: 17
+Cache hit rate for Random replacement: 0.98
+====================================
+Number of accesses: 1000
+Number of messages: 100
+Cache hit for Random replacement: 987
+Cache miss for Random replacement: 13
+Cache hit rate for Random replacement: 0.99

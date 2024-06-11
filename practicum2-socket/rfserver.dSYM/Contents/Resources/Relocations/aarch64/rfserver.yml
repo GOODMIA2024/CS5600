@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     rfserver
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _writeServerResponse, symObjAddr: 0x0, symBinAddr: 0x10000246C, symSize: 0x54C }
+  - { offsetInCU: 0x4E, offset: 0x4E, size: 0x8, addend: 0x0, symName: _server_socket, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0xE6, offset: 0xE6, size: 0x8, addend: 0x0, symName: _writeServerResponse, symObjAddr: 0x0, symBinAddr: 0x10000246C, symSize: 0x54C }
+  - { offsetInCU: 0x1E7, offset: 0x1E7, size: 0x8, addend: 0x0, symName: _getServerResponse, symObjAddr: 0x54C, symBinAddr: 0x1000029B8, symSize: 0x27C }
+  - { offsetInCU: 0x283, offset: 0x283, size: 0x8, addend: 0x0, symName: _removeServerResponse, symObjAddr: 0x7C8, symBinAddr: 0x100002C34, symSize: 0x23C }
+  - { offsetInCU: 0x2E5, offset: 0x2E5, size: 0x8, addend: 0x0, symName: _handle_client_connection, symObjAddr: 0xA04, symBinAddr: 0x100002E70, symSize: 0x158 }
+  - { offsetInCU: 0x34B, offset: 0x34B, size: 0x8, addend: 0x0, symName: _start_new_thread, symObjAddr: 0xB5C, symBinAddr: 0x100002FC8, symSize: 0xD0 }
+  - { offsetInCU: 0x38F, offset: 0x38F, size: 0x8, addend: 0x0, symName: _close_server, symObjAddr: 0xC2C, symBinAddr: 0x100003098, symSize: 0x34 }
+  - { offsetInCU: 0x3B5, offset: 0x3B5, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xC60, symBinAddr: 0x1000030CC, symSize: 0x32C }
+  - { offsetInCU: 0x439, offset: 0x439, size: 0x8, addend: 0x0, symName: __OSSwapInt16, symObjAddr: 0xF8C, symBinAddr: 0x1000033F8, symSize: 0x24 }
+...
