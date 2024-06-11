@@ -1,0 +1,62 @@
+# Question 1
+The pic shows the situation where stack memory and heap memory are going to 
+meet each other in the middle, which signifies that there is no more address 
+space to allocate for free memory for this program. This is actually commonly 
+known as 'stack overflow'.
+
+## What would occur? 
+ If the stack and heap collide, it's more likely that the program will experience a 
+ segmentation fault or another form of a crash due to memory access violations.
+
+ On a modern OS, there will be one or more virtual memory guard pages which prevent 
+ the stack from growing indefinitely. As long as the amount of memory in the guard 
+ pages is at least as large as the size of the growing procedure's activation record, 
+ the OS will guarantee you a segfault. 
+ You'll get either a stack overflow error or malloc() or sbrk() or mmap() will fail 
+ when you try to grow the heap. For C it is segmentation fault or memory allocation error.
+
+## The consequences
+Suppose, you call above function, it will run out of stack and program will crash. However, 
+This is often handled by the operating system, which will terminate the program to prevent 
+it from executing further invalid operations.
+
+Ref: https://stackoverflow.com/questions/1334055/what-happens-when-stack-and-heap-collide
+
+# Question 2
+System call table is an array of function pointers. It provides an interface between a process 
+and an operating system to allow user-level  processes to request services of the operating system.
+This table identifies the mapping between the system call number (which actually specifies 
+the system call), the name that is commonly used, and the entry point routine within the 
+Linux kernel itself. 
+
+For example, if the program is running on the different versions of an operating system:
+    Direct calling of operating system addresses:
+        If a program is to read from a file, when the operating system evolves, the operating system can relocates its services
+        to different addresses and the direct call cannot point to the correct locations, leading to errors
+        or undefined behavior.
+    Using system call table
+        The program of reading a file, when the operating system updates, the system call table can be updated correspondingly
+        with the call numbers(the interface used by programs) remaining the same. Thus, the program can still work properly.
+
+Ref: 
+https://0xax.gitbooks.io/linux-insides/content/SysCall/linux-syscall-1.html
+https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/Syscall.html
+
+# Question 3
+There are mainly two issues.
+First, 
+    the method of calloc is declared as void *calloc(size_t nitems, size_t size), where nitems represents the number of elements to be allocated.
+    and size represents the size of elements. This function returns a pointer to the allocated memory, or NULL if the request fails.
+    The first statement is missing the size of the each element and do not make it clear whether it is intended to define a block of 2048 characters.
+    Under such assumption, it can be corrected as:
+                char* block = calloc(2048);  -> char* block = calloc(2048, sizeof(char));
+
+Second,
+    The memset is used as void *memset(void *str, int c, size_t n), where str is a pointer to the block of memory to fill, c 
+    is the value to be set and is passed as an int and n is the number of bytes to be set to the value. It returns a pointer to the memory area str.
+    The second statement is using &block to pass as the first parameter, where &block is the address of the pointer variable itself.       
+                  memset(&block, 0xFF, 2048);  -> memset(block, 0xFF, 2048);
+
+Ref: 
+https://www.tutorialspoint.com/c_standard_library/c_function_calloc.htm
+https://www.tutorialspoint.com/c_standard_library/c_function_memset.htm
